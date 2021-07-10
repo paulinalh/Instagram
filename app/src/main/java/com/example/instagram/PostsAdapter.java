@@ -19,6 +19,8 @@ import org.parceler.Parcels;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
     private Context context;
     private List<Post> posts;
@@ -65,23 +67,27 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private ImageView ivImage;
         private TextView tvDescription;
         private TextView tvTimeStamp;
+        private ImageView ivPicture;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+            ivPicture=itemView.findViewById(R.id.ivPicture);
             itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
-            tvUsername.setText(post.getUser().getUsername());
+            tvUsername.setText("@"+post.getUser().getUsername());
             ParseFile image = post.getImage();
+            ParseFile picture= post.getUser().getParseFile("picture");
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
+            Glide.with(context).load(picture.getUrl()).transform(new RoundedCornersTransformation(500, 0)).into(ivPicture);
         }
 
 
