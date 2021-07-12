@@ -74,16 +74,16 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvUsername = itemView.findViewById(R.id.tvUsername);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
-            ivPicture=itemView.findViewById(R.id.ivPicture);
+            ivPicture = itemView.findViewById(R.id.ivPicture);
             itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
-            tvUsername.setText("@"+post.getUser().getUsername());
+            tvUsername.setText("@" + post.getUser().getUsername());
             ParseFile image = post.getImage();
-            ParseFile picture= post.getUser().getParseFile("picture");
+            ParseFile picture = post.getUser().getParseFile("picture");
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
@@ -94,7 +94,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         @Override
         public void onClick(View v) {
             // gets item position
-            int position =  getAdapterPosition();
+            int position = getAdapterPosition();
             // make sure the position is valid, i.e. actually exists in the view
             if (position != RecyclerView.NO_POSITION) {
                 // get the movie at the position, this won't work if the class is static
@@ -106,10 +106,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 // show the activity
                 context.startActivity(intent);
 
+            }
         }
-    }
-
-
 
 
     }

@@ -53,9 +53,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageView ivPictureUser=view.findViewById(R.id.ivPictureUser);
+        ImageView ivPictureUser = view.findViewById(R.id.ivPictureUser);
 
-        ParseFile picture= ParseUser.getCurrentUser().getParseFile("picture");
+        ParseFile picture = ParseUser.getCurrentUser().getParseFile("picture");
         Glide.with(getContext()).load(picture.getUrl()).transform(new RoundedCornersTransformation(500, 0)).into(ivPictureUser);
 
         TextView tvUser = view.findViewById(R.id.tvUser);

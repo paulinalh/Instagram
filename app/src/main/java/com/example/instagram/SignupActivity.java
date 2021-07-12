@@ -27,22 +27,21 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        etUsername=findViewById(R.id.etUsername);
-        etPassword=findViewById(R.id.etPassword);
-        btnSignup=findViewById(R.id.btnSignUp);
+        etUsername = findViewById(R.id.etUsername);
+        etPassword = findViewById(R.id.etPassword);
+        btnSignup = findViewById(R.id.btnSignUp);
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username= etUsername.getText().toString();
-                String password= etPassword.getText().toString();
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
                 onButtonSignUp(username, password);
             }
         });
 
-        String username= etUsername.getText().toString();
-        String password= etPassword.getText().toString();
-
+        String username = etUsername.getText().toString();
+        String password = etPassword.getText().toString();
 
 
     }
@@ -54,10 +53,10 @@ public class SignupActivity extends AppCompatActivity {
         user.setUsername(username);
         user.setPassword(password);
         // Set custom properties
-        user.put("phone","650-253-0000");
+        user.put("phone", "650-253-0000");
         // Invoke signUpInBackground
         user.signUpInBackground(new SignUpCallback() {
-            public void done (ParseException e){
+            public void done(ParseException e) {
                 if (e == null) {
                     // Hooray! Let them use the app now.
                     goMainActivity();
@@ -70,9 +69,8 @@ public class SignupActivity extends AppCompatActivity {
     }
 
 
-
     private void goMainActivity() {
-        Intent i =new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
     }

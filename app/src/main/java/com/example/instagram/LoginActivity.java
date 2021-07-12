@@ -16,7 +16,7 @@ import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String TAG="LoginActivity";
+    public static final String TAG = "LoginActivity";
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
@@ -27,20 +27,20 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        if(ParseUser.getCurrentUser()!=null){
+        if (ParseUser.getCurrentUser() != null) {
             goMainActivity();
         }
 
-        etUsername=findViewById(R.id.etUsername);
-        etPassword=findViewById(R.id.etPassword);
-        btnLogin=findViewById(R.id.btnLogin);
-        btnSignup=findViewById(R.id.btnSignUp);
+        etUsername = findViewById(R.id.etUsername);
+        etPassword = findViewById(R.id.etPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnSignup = findViewById(R.id.btnSignUp);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick login button");
-                String username=etUsername.getText().toString();
-                String password =etPassword.getText().toString();
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
                 loginUser(username, password);
             }
         });
@@ -53,12 +53,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser(String username, String password){
-        Log.i(TAG,"Attempting to login user"+username);
+    private void loginUser(String username, String password) {
+        Log.i(TAG, "Attempting to login user" + username);
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
-                if(e!=null){
+                if (e != null) {
                     Log.e(TAG, "Issue with login", e);
                     Toast.makeText(LoginActivity.this, "Issue wth login", Toast.LENGTH_SHORT).show();
                     return;
@@ -72,12 +72,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goMainActivity() {
-        Intent i =new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
     }
 
-    private void goSignupActivity(){
+    private void goSignupActivity() {
         Intent i = new Intent(this, SignupActivity.class);
         startActivity(i);
         finish();

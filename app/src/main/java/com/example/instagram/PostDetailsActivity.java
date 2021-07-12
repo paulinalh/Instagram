@@ -48,7 +48,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
 
         // set the texts and image of the views
-        tvUsername.setText("@"+post.getUser().getUsername());
+        tvUsername.setText("@" + post.getUser().getUsername());
         tvDescription.setText(post.getDescription());
         ParseFile image = post.getImage();
         Date createdAt = post.getCreatedAt();

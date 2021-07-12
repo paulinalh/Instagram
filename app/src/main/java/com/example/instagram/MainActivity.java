@@ -40,15 +40,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*public static final String TAG = "MainActivity";
-    public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE=42;
-    private EditText etDescription;
-    private Button btnCaptureImage;
-    private ImageView ivPostImage;
-    private Button btnSubmit;
-    private File photoFile;
-    private Button btnGoToFeed;
-    public String photoFileName="photo.jpg";*/
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigation;
 
@@ -57,41 +48,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*
-        final FragmentManager fragmentManager = getSupportFragmentManager();
-
-        // define your fragments here
-
-        final Fragment fragment1 = new FirstFragment();
-        final Fragment fragment2 = new SecondFragment();
-        final Fragment fragment3 = new ThirdFragment();
-
-        // handle navigation selection
-        bottomNavigation.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Fragment fragment;
-                        switch (item.getItemId()) {
-                            case R.id.action_home:
-                                Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
-                                fragment = new ComposeFragment();
-                                break;
-                            case R.id.action_compose:
-                                Toast.makeText(MainActivity.this, "Compose", Toast.LENGTH_SHORT).show();
-                                fragment = new ComposeFragment();
-                                break;
-                            case R.id.action_profile:
-                                Toast.makeText(MainActivity.this, "Profile", Toast.LENGTH_SHORT).show();
-                                fragment = new ComposeFragment();
-                                break;
-                            default:
-                                throw new IllegalStateException("Unexpected value: " + item.getItemId());
-                        }
-                        fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
-                        return true;
-                    }
-                });*/
 
 
         BottomNavigationView bottomNavigation = (BottomNavigationView) findViewById(R.id.bottomNavigation);

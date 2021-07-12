@@ -40,14 +40,14 @@ import static android.app.Activity.RESULT_OK;
 public class ComposeFragment extends Fragment {
 
     public static final String TAG = "MainActivity";
-    public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE=42;
+    public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     private EditText etDescription;
     private Button btnCaptureImage;
     private ImageView ivPostImage;
     private Button btnSubmit;
     private File photoFile;
     private Button btnGoToFeed;
-    public String photoFileName="photo.jpg";
+    public String photoFileName = "photo.jpg";
 
     public ComposeFragment() {
         // Required empty public constructor
@@ -98,16 +98,16 @@ public class ComposeFragment extends Fragment {
                     Toast.makeText(getContext(), "Description cant be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(photoFile==null || ivPostImage.getDrawable()==null){
+                if (photoFile == null || ivPostImage.getDrawable() == null) {
                     Toast.makeText(getContext(), "There is no image", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                ParseUser currentUser= ParseUser.getCurrentUser();
+                ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
             }
         });
 
-}
+    }
 
     private void launchCamera() {
         // create Intent to take a picture and return control to the calling application
@@ -153,7 +153,7 @@ public class ComposeFragment extends Fragment {
         File mediaStorageDir = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
 
         // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
             Log.d(TAG, "failed to create directory");
         }
 
